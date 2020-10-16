@@ -1,6 +1,14 @@
 MIT License
 
-Copyright (c) 2020 Shapovalov-Dmitry
+## Copyright (c) 2020 Shapovalov-Dmitry
+
+[Desktop English Exercises application](https://github.com/Shapovalov-Dmitry/desktop-english-exercises)
+
+## Copyright 2020 - Maxime GRIS
+
+[Angular + Electron.js project setup](https://github.com/maximegris/angular-electron)
+
+---
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
