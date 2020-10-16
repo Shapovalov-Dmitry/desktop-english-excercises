@@ -18,14 +18,7 @@
     text-shadow: 1px 1px 2px black;
   }
 
-  &__paginate-button {
-    &_left {
-      justify-self: end;
-      margin-right: 3rem;
-    }
-    &_right {
-      justify-self: start;
-      margin-left: 3rem;
-    }
+  &__stepper {
+    grid-column: 1 / 3;
   }
 }

@@ -8,24 +8,11 @@
     }}<span class="exercise-plurals__suffix">{{ current.suffix }}</span>
   </span>
 
-  <button
-    [ngStyle]="{ visibility: currentIdx > 0 ? 'visible' : 'hidden' }"
-    mat-raised-button
-    class="exercise-plurals__paginate-button exercise-plurals__paginate-button_left"
-    (click)="goPrevHandler()"
-  >
-    <mat-icon>keyboard_arrow_left</mat-icon>Previous
-  </button>
-
-  <button
-    [ngStyle]="{
-      visibility: currentIdx < data.content.length - 1 ? 'visible' : 'hidden'
-    }"
-    mat-raised-button
-    color="accent"
-    class="exercise-plurals__paginate-button exercise-plurals__paginate-button_right"
-    (click)="goNextHandler()"
-  >
-    Next<mat-icon>keyboard_arrow_right</mat-icon>
-  </button>
+  <app-stepper
+    class="exercise-plurals__stepper"
+    [isGoBackAvailable]="currentIdx > 0"
+    [isGoForwardAvailable]="currentIdx < data.content.length - 1"
+    (goBack)="goPrevHandler()"
+    (goForward)="goNextHandler()"
+  ></app-stepper>
 </div>
