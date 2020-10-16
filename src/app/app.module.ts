@@ -2,6 +2,7 @@ import "reflect-metadata";
 import "../polyfills";
 
 import { BrowserModule } from "@angular/platform-browser";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule, HttpClient } from "@angular/common/http";
@@ -17,7 +18,7 @@ import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { HomeModule } from "./home/home.module";
 
 import { AppComponent } from "./app.component";
-import { ExercisesModule } from './exercises/exercises.module';
+import { ExercisesModule } from "./exercises/exercises.module";
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -42,6 +43,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
       },
     }),
     ExercisesModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

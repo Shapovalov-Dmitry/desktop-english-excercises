@@ -8,7 +8,7 @@ import { ExercisesModule } from "./exercises/exercises.module";
 const routes: Routes = [
   {
     path: "",
-    redirectTo: "exercise/plurals",
+    redirectTo: "exercise",
     pathMatch: "full",
   },
   {
