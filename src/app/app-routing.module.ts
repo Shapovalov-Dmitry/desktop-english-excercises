@@ -3,11 +3,12 @@ import { Routes, RouterModule } from "@angular/router";
 import { PageNotFoundComponent } from "./shared/components";
 
 import { HomeRoutingModule } from "./home/home-routing.module";
+import { ExercisesModule } from "./exercises/exercises.module";
 
 const routes: Routes = [
   {
     path: "",
-    redirectTo: "home",
+    redirectTo: "exercise/plurals",
     pathMatch: "full",
   },
   {
@@ -17,7 +18,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes), HomeRoutingModule],
+  imports: [RouterModule.forRoot(routes), HomeRoutingModule, ExercisesModule],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
