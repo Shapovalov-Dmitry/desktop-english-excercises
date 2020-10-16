@@ -1,7 +1,11 @@
-<mat-tab-group>
-  <mat-tab label="First">
-    <ng-template matTabContent>
-      <app-exercise-plurals></app-exercise-plurals>
-    </ng-template>
-  </mat-tab>
+<mat-tab-group *ngFor="let file of files">
+  <div [ngSwitch]="file.filename">
+    <ng-container *ngSwitchCase="'plurals.json'">
+      <mat-tab label="Plurals">
+        <ng-template matTabContent>
+          <app-exercise-plurals [data]="file"></app-exercise-plurals>
+        </ng-template>
+      </mat-tab>
+    </ng-container>
+  </div>
 </mat-tab-group>

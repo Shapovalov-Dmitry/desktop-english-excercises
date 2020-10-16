@@ -1,0 +1,31 @@
+.exercise-plurals {
+  display: grid;
+  grid-template: 1fr 1fr / 1fr 1fr;
+  padding: 30px 20%;
+  row-gap: 2rem;
+  align-items: center;
+  justify-items: center;
+  font-size: 60px;
+
+  img {
+    max-height: 300px;
+    border-radius: 8px;
+    box-shadow: 4px 4px 18px -2px black;
+  }
+
+  &__suffix {
+    color: red;
+    text-shadow: 1px 1px 2px black;
+  }
+
+  &__paginate-button {
+    &_left {
+      justify-self: end;
+      margin-right: 3rem;
+    }
+    &_right {
+      justify-self: start;
+      margin-left: 3rem;
+    }
+  }
+}

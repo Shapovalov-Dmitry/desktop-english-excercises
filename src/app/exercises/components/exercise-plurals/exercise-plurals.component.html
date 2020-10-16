@@ -1,1 +1,31 @@
-<p>exercise-plurals works!</p>
+<div class="exercise-plurals" *ngIf="data.content[currentIdx] as current">
+  <img [src]="current.image" alt="" />
+  <span>{{ current.word }}</span>
+
+  <img [src]="current.imagePlural" alt="" />
+  <span>
+    {{ current._wordWithoutSuffix
+    }}<span class="exercise-plurals__suffix">{{ current.suffix }}</span>
+  </span>
+
+  <button
+    [ngStyle]="{ visibility: currentIdx > 0 ? 'visible' : 'hidden' }"
+    mat-raised-button
+    class="exercise-plurals__paginate-button exercise-plurals__paginate-button_left"
+    (click)="goPrevHandler()"
+  >
+    <mat-icon>keyboard_arrow_left</mat-icon>Previous
+  </button>
+
+  <button
+    [ngStyle]="{
+      visibility: currentIdx < data.content.length - 1 ? 'visible' : 'hidden'
+    }"
+    mat-raised-button
+    color="accent"
+    class="exercise-plurals__paginate-button exercise-plurals__paginate-button_right"
+    (click)="goNextHandler()"
+  >
+    Next<mat-icon>keyboard_arrow_right</mat-icon>
+  </button>
+</div>
