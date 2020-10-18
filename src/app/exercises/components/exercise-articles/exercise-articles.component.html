@@ -1,0 +1,47 @@
+<div class="exercise-articles">
+  <div *ngIf="data.content[currentIdx] as current">
+    <div class="exercise-articles__phrase">
+      <span>
+        {{ current._partBeforeInsert
+        }}<span class="exercise-articles__insert">{{
+          getStatusClass(current.answer) === "correct" ? current.answer : ""
+        }}</span
+        >{{ current._partAfterInsert }}</span
+      >
+    </div>
+
+    <div class="exercise-articles__answers-container">
+      <button
+        mat-raised-button
+        [class]="getStatusClass(AnswersEnum.an)"
+        (click)="submit(AnswersEnum.an)"
+      >
+        an
+      </button>
+
+      <button
+        mat-raised-button
+        [class]="getStatusClass(AnswersEnum.a)"
+        (click)="submit(AnswersEnum.a)"
+      >
+        a
+      </button>
+
+      <button
+        mat-raised-button
+        [class]="getStatusClass(AnswersEnum.empty)"
+        (click)="submit(AnswersEnum.empty)"
+      >
+        —
+      </button>
+    </div>
+  </div>
+
+  <app-stepper
+    class="exercise-plurals__stepper"
+    [isGoBackAvailable]="currentIdx > 0"
+    [isGoForwardAvailable]="currentIdx < data.content.length - 1"
+    (goBack)="goPrevHandler()"
+    (goForward)="goNextHandler()"
+  ></app-stepper>
+</div>

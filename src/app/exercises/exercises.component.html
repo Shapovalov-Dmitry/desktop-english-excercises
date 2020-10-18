@@ -1,9 +1,17 @@
-<mat-tab-group *ngFor="let file of files">
-  <div [ngSwitch]="file.filename">
+<mat-tab-group>
+  <div *ngFor="let file of files" [ngSwitch]="file.filename">
     <ng-container *ngSwitchCase="'plurals.json'">
       <mat-tab label="Plurals">
         <ng-template matTabContent>
           <app-exercise-plurals [data]="file"></app-exercise-plurals>
+        </ng-template>
+      </mat-tab>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'articles.json'">
+      <mat-tab label="Articles">
+        <ng-template matTabContent>
+          <app-exercise-articles [data]="file"></app-exercise-articles>
         </ng-template>
       </mat-tab>
     </ng-container>
