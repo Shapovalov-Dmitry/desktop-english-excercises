@@ -13,6 +13,15 @@ export class ExercisesComponent implements OnInit {
   constructor(private fsService: FsService) {}
 
   ngOnInit(): void {
-    this.files = this.fsService.getDataFromFileSystem();
+    const fileNumRegex = new RegExp(/\d. /);
+
+    this.files = this.fsService
+      .getDataFromFileSystem()
+      .map((f) => ({
+        ...f,
+        filename: f.filename.replace(fileNumRegex, ""),
+        fileNum: parseInt((fileNumRegex.exec(f.filename) || ["0"])[0]),
+      }))
+      .sort((f1, f2) => f1.fileNum - f2.fileNum);
   }
 }

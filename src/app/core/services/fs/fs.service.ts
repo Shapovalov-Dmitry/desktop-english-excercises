@@ -3,6 +3,7 @@ import * as fs from "fs";
 
 export interface IFileConfig<T = any> {
   filename: string;
+  fileNum: number;
   content: T;
 }
 
