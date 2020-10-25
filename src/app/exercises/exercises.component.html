@@ -1,7 +1,7 @@
 <mat-tab-group>
   <div *ngFor="let file of files" [ngSwitch]="file.filename">
     <ng-container *ngSwitchCase="'plurals.json'">
-      <mat-tab label="Plurals">
+      <mat-tab label="Plurals Images">
         <ng-template matTabContent>
           <app-exercise-plurals [data]="file"></app-exercise-plurals>
         </ng-template>
@@ -11,7 +11,19 @@
     <ng-container *ngSwitchCase="'articles.json'">
       <mat-tab label="Articles">
         <ng-template matTabContent>
-          <app-exercise-articles [data]="file"></app-exercise-articles>
+          <app-choose-insert-generic-exercise
+            [data]="file"
+          ></app-choose-insert-generic-exercise>
+        </ng-template>
+      </mat-tab>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'pluralsEx.json'">
+      <mat-tab label="Plurals Ex.">
+        <ng-template matTabContent>
+          <app-choose-insert-generic-exercise
+            [data]="file"
+          ></app-choose-insert-generic-exercise>
         </ng-template>
       </mat-tab>
     </ng-container>

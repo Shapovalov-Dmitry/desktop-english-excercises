@@ -1,0 +1,45 @@
+.exercise-articles {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 55px;
+  height: 90vh;
+  width: 100%;
+
+  &__insert {
+    display: inline-block;
+    color: rgb(158, 219, 66);
+
+    &:empty {
+      width: 1em;
+      border-bottom: 2px solid black;
+      position: relative;
+      top: 4px;
+    }
+  }
+
+  &__answers-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  &__answer-btn {
+    margin: 1em;
+    padding: 10px 30px;
+    font-size: 45px;
+  }
+
+  &__stepper {
+    margin-top: 20vh;
+  }
+
+  .correct {
+    background-color: greenyellow;
+  }
+
+  .wrong {
+    background-color: red;
+  }
+}

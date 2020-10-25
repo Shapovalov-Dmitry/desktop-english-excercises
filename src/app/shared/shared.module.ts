@@ -9,9 +9,10 @@ import { FormsModule } from "@angular/forms";
 import { StepperComponent } from "./components/stepper/stepper.component";
 import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
+import { ChooseInsertGenericExerciseComponent } from './components/choose-insert-generic-exercise/choose-insert-generic-exercise.component';
 
 @NgModule({
-  declarations: [PageNotFoundComponent, WebviewDirective, StepperComponent],
+  declarations: [PageNotFoundComponent, WebviewDirective, StepperComponent, ChooseInsertGenericExerciseComponent],
   imports: [
     CommonModule,
     TranslateModule,
@@ -19,6 +20,6 @@ import { MatButtonModule } from "@angular/material/button";
     MatIconModule,
     MatButtonModule,
   ],
-  exports: [TranslateModule, WebviewDirective, FormsModule, StepperComponent],
+  exports: [TranslateModule, WebviewDirective, FormsModule, StepperComponent, ChooseInsertGenericExerciseComponent],
 })
 export class SharedModule {}

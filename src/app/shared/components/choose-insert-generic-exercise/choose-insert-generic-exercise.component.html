@@ -1,0 +1,35 @@
+<div class="exercise-articles" *ngIf="data.content[currentIdx] as current">
+  <div class="exercise-articles__phrase">
+    <span>
+      {{ current._partBeforeInsert
+      }}<span class="exercise-articles__insert text-shadowed">{{
+        getStatusClass(current.answer) === "correct" ? current.answer : ""
+      }}</span
+      ><span
+        [ngClass]="{ pyro: getStatusClass(current.answer) === 'correct' }"
+      ></span
+      >{{ current._partAfterInsert }}</span
+    >
+  </div>
+
+  <div class="exercise-articles__answers-container">
+    <button
+      *ngFor="let option of current.options"
+      class="exercise-articles__answer-btn"
+      mat-raised-button
+      [class]="getStatusClass(option)"
+      (click)="submit(option)"
+    >
+      {{ option }}
+      <ng-container *ngIf="option === ' '">—</ng-container>
+    </button>
+  </div>
+
+  <app-stepper
+    class="exercise-articles__stepper"
+    [isGoBackAvailable]="currentIdx > 0"
+    [isGoForwardAvailable]="currentIdx < data.content.length - 1"
+    (goBack)="goPrevHandler()"
+    (goForward)="goNextHandler()"
+  ></app-stepper>
+</div>
