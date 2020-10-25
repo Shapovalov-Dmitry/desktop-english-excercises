@@ -17,3 +17,70 @@ body {
 .text-shadowed {
   text-shadow: 1px 1px 2px black;
 }
+
+$particles: 1000;
+$width: 1000;
+$height: 1000;
+
+// Create the explosion...
+$box-shadow: ();
+$box-shadow2: ();
+@for $i from 0 through $particles {
+  $box-shadow: $box-shadow,
+    random($width)-$width /
+      2 +
+      px
+      random($height)-$height /
+      1.2 +
+      px
+      hsl(random(360), 100, 50);
+  $box-shadow2: $box-shadow2, 0 0 #fff;
+}
+@mixin keyframes($animationName) {
+  @keyframes #{$animationName} {
+    @content;
+  }
+}
+
+@mixin animation-delay($settings) {
+  animation-delay: $settings;
+}
+
+@mixin animation-duration($settings) {
+  animation-duration: $settings;
+}
+
+@mixin animation($settings) {
+  animation: $settings;
+}
+
+@mixin transform($settings) {
+  transform: $settings;
+}
+
+.pyro {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  box-shadow: $box-shadow2;
+  @include animation(
+    (
+      1s bang ease-out 1 backwards,
+      1s gravity ease-in 1 backwards,
+      5s position linear 1 backwards
+    )
+  );
+}
+
+@include keyframes(bang) {
+  to {
+    box-shadow: $box-shadow;
+  }
+}
+
+@include keyframes(gravity) {
+  to {
+    @include transform(translateY(200px));
+    opacity: 0;
+  }
+}

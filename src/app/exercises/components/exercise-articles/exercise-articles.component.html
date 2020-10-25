@@ -5,6 +5,9 @@
       }}<span class="exercise-articles__insert text-shadowed">{{
         getStatusClass(current.answer) === "correct" ? current.answer : ""
       }}</span
+      ><span
+        [ngClass]="{ pyro: getStatusClass(current.answer) === 'correct' }"
+      ></span
       >{{ current._partAfterInsert }}</span
     >
   </div>
